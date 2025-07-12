@@ -1,5 +1,5 @@
 {% set name = "dttlib" %}
-{% set version = "0.3.5" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://git.ligo.org/cds/software/cr_tools/dttlib/-/archive/{{ version }}/{{ version }}.tar.gz
-  sha256: 3529939797ec31d32afa30f94633c225988dbc0548b6ad1b882c85da78ea6215
+  sha256: fb0b425627e1cd38d6e7e46fe906680e01e52e2e9b3a01ec02896178f7c6d6f1
 
 build:
   skip: true  # [not linux]
@@ -20,24 +20,24 @@ build:
 
 requirements:
   build:
-   - {{ compiler('c') }}
-   - {{ stdlib("c") }}
-   - {{ compiler('cxx') }}
-   - {{ compiler('rust') }}
-   - cargo-bundle-licenses
-   - make
-   - pkg-config
-   - ruff
+    - {{ compiler('c') }}
+    - {{ stdlib("c") }}
+    - {{ compiler('cxx') }}
+    - {{ compiler('rust') }}
+    - cargo-bundle-licenses
+    - make
+    - pkg-config
+    - ruff
   host:
-   - gds-sigp
-   - libcds
-   - libclang
-   - maturin
-   - nds2-client
-   - pip
-   - python
-   - rapidjson
-   - zstd
+    - gds-sigp
+    - libcds
+    - libclang
+    - maturin
+    - nds2-client
+    - pip
+    - python
+    - rapidjson
+    - zstd
   run:
     - python
 
