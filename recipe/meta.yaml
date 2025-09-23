@@ -1,5 +1,5 @@
 {% set name = "dttlib" %}
-{% set version = "0.7.4" %}
+{% set version = "0.7.5" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://git.ligo.org/cds/software/cr_tools/dttlib/-/archive/{{ version }}/{{ version }}.tar.gz
-  sha256:  abe0f8d1a497672080896bf1575fb6f22080877dc2204e416612b8105897903b
+  sha256: 44efd4385d25c58b9e330ffea3fb40e2f8d19c4e513e257a66aedc98b48dc757 
 
 build:
   skip: true  # [not linux]
