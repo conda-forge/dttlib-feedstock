@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://git.ligo.org/cds/software/cr_tools/dttlib/-/archive/{{ version }}/{{ version }}.tar.gz
-  sha256: 44efd4385d25c58b9e330ffea3fb40e2f8d19c4e513e257a66aedc98b48dc757 
+  sha256: 553fee3aa8a9518c96ac73ecfddeb886e539caf20ffaa4838d779d0580917945 
 
 build:
   skip: true  # [not linux]
