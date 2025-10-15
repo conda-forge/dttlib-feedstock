@@ -38,7 +38,7 @@ requirements:
     - rapidjson
     - zstd
   run:
-    - python 
+    - python <3.14 
     - gds-sigp
 
 test:
