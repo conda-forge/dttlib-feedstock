@@ -1,5 +1,5 @@
 {% set name = "dttlib" %}
-{% set version = "0.8.2" %}
+{% set version = "0.9.0" %}
 
 package:
   name: {{ name }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://git.ligo.org/cds/software/cr_tools/dttlib/-/archive/{{ version }}/{{ version }}.tar.gz
-  sha256: 0fb0ffa392dd9112ee35a5a385b522e71d00dee1cd7e7ef9837bcfeefe5b1bc1 
+  sha256: b21bb9f9ffe7c311e449a8c007efd3dd97d36ac3bc8ddd329cbe121be65ed71a 
 
 build:
-  skip: true  # [not linux]
+  skip: true  # [not linux]    
   error_overlinking: true
   error_overdepending: true
   number: 0
@@ -28,6 +28,7 @@ requirements:
     - make
     - pkg-config
     - ruff
+    - python
   host:
     - gds-sigp
     - libclang
