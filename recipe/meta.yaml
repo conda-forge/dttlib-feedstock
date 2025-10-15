@@ -28,6 +28,7 @@ requirements:
     - make
     - pkg-config
     - ruff
+    - python
   host:
     - gds-sigp
     - libclang
