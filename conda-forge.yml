@@ -4,3 +4,6 @@ github:
 conda_build:
   error_overlinking: true
 conda_forge_output_validation: true
+python:
+  max_pin: x.x  # This pins to minor version
+  min_pin: x.x

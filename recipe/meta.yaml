@@ -10,7 +10,7 @@ source:
   sha256: b21bb9f9ffe7c311e449a8c007efd3dd97d36ac3bc8ddd329cbe121be65ed71a 
 
 build:
-  skip: true  # [not linux or py<38 or py>313]    
+  skip: true  # [not linux]    
   error_overlinking: true
   error_overdepending: true
   number: 0
