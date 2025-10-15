@@ -4,9 +4,3 @@ github:
 conda_build:
   error_overlinking: true
 conda_forge_output_validation: true
-python:
-  - "3.9"
-  - "3.10"
-  - "3.11"
-  - "3.12"
-  - "3.13"
