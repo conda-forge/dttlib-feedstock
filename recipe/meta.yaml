@@ -10,7 +10,7 @@ source:
   sha256: f5fbb01a884315c3fe887f9efb1e9020e8e8cfac3f4c10b859edd1b77448373f 
 
 build:
-  skip: true  # [not linux]    
+  skip: true  # [win]    
   error_overlinking: true
   error_overdepending: true
   number: 0
