@@ -48,7 +48,7 @@ requirements:
     - maturin
     - nds2-client
     - pip
-    - python
+      #- python
     - rapidjson
     - zstd
   run:
