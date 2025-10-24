@@ -41,18 +41,13 @@ requirements:
     - make
     - pkg-config
       #- ruff
+    - maturin
     - if: build_platform != target_platform
       then:
         - "python"
         - cross-python_${{ target_platform }}
   host:
     - maturin
-    - if: build_platform != target_platform
-      then:
-        - "python"
-        - cross-python_${{ target_platform }}
-      else:
-        - python
     - gds-sigp
     - libclang
     - nds2-client
