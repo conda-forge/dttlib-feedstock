@@ -43,7 +43,7 @@ requirements:
       #- ruff
     - if: build_platform != target_platform
       then:
-        - "python ${{ python_min }}.*"
+        - "python"
         - cross-python_${{ target_platform }}
   host:
     - gds-sigp
@@ -51,7 +51,7 @@ requirements:
     - maturin
     - nds2-client
     - pip
-    - python ${{ python_min }}.*
+    - python 
     - rapidjson
     - zstd
   run:
