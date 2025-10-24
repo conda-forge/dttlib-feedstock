@@ -40,6 +40,7 @@ requirements:
     - cargo-bundle-licenses
     - make
     - pkg-config
+    - maturin
       #- ruff
     - if: build_platform != target_platform
       then:
@@ -48,7 +49,6 @@ requirements:
   host:
     - gds-sigp
     - libclang
-    - maturin
     - nds2-client
     - pip
     - python 
