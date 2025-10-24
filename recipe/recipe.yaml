@@ -40,18 +40,23 @@ requirements:
     - cargo-bundle-licenses
     - make
     - pkg-config
-    - maturin
       #- ruff
     - if: build_platform != target_platform
       then:
         - "python"
         - cross-python_${{ target_platform }}
   host:
+    - maturin
+    - if: build_platform != target_platform
+      then:
+        - "python"
+        - cross-python_${{ target_platform }}
+      else:
+        - python
     - gds-sigp
     - libclang
     - nds2-client
     - pip
-    - python 
     - rapidjson
     - zstd
   run:
