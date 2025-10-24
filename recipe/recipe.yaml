@@ -42,10 +42,11 @@ requirements:
     - pkg-config
       #- ruff
     - maturin
-    - if: build_platform != target_platform
-      then:
-        - "python"
-        - cross-python_${{ target_platform }}
+      #  - if: build_platform != target_platform
+      #    then:
+      #      - "python"
+    - cross-python_${{ target_platform }}
+      
   host:
     - maturin
     - gds-sigp
@@ -54,6 +55,7 @@ requirements:
     - pip
     - rapidjson
     - zstd
+    - python
   run:
     - python
     - gds-sigp
