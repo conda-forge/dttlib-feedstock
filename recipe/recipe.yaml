@@ -40,8 +40,8 @@ requirements:
     - cargo-bundle-licenses
     - make
     - pkg-config
-    - ruff
-    - python
+      #- ruff
+      #- python
   host:
     - gds-sigp
     - libclang
