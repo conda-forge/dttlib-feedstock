@@ -42,10 +42,12 @@ requirements:
     - pkg-config
       #- ruff
     - maturin
-      #  - if: build_platform != target_platform
-      #    then:
-      #      - "python"
-    - cross-python_${{ target_platform }}
+    - if: build_platform != target_platform
+      then:
+        - "python"
+        - cross-python_${{ target_platform }}
+      else:
+        - "python"
       
   host:
     - maturin
