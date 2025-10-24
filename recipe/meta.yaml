@@ -17,6 +17,10 @@ build:
   ignore_run_exports:
     - libclang13
     - zstd
+  run_exports:
+    - libosxunwind  # [osx]
+  #script_env:
+  #  - RUSTFLAGS=-C link-arg=-lunwind  # [osx and arm64]
 
 requirements:
   build:
@@ -24,6 +28,7 @@ requirements:
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - {{ compiler('rust') }}
+    - libosxunwind  # [osx]
     - cargo-bundle-licenses
     - make
     - pkg-config
