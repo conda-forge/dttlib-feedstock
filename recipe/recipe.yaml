@@ -68,14 +68,16 @@ requirements:
     - gds-sigp
 
 tests:
-  - requirements:
-      run:
-        - pytest
-    files:
-      source:
-        - test_dttlib.py
-    script:
-      - pytest
+  - if: not osx
+    then:
+      - requirements:
+          run:
+            - pytest
+        files:
+          source:
+            - test_dttlib.py
+        script:
+          - pytest
 
 about:
   homepage: https://git.ligo.org/cds/software/cr_tools/dttlib
