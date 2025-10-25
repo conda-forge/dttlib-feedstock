@@ -4,7 +4,7 @@ export LIBCLANG_PATH=${PREFIX}/lib
 export C_INCLUDE_PATH=${PREFIX}/include
 export CPLUS_INCLUDE_PATH=${PREFIX}/include
 export LIBRARY_PATH=${PREFIX}/lib
-
+export PYO3_NO_PYTHONLI=1
 # For macOS cross-compilation, point to the correct Python library
 # export PYO3_CROSS_LIB_DIR="${PREFIX}/lib"
 
