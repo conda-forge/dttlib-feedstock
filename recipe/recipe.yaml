@@ -42,7 +42,7 @@ requirements:
     - pkg-config
       #- ruff
     - maturin
-    - find_libpython
+    - find-libpython
     - if: build_platform != target_platform
       then:
         - "python"
@@ -57,10 +57,11 @@ requirements:
     - nds2-client
     - pip
     - rapidjson
-    - zstd
+    - zstd    
     - if: build_platform == target_platform
       then: 
        - python
+         #- libpython-static
   run:
     - python
     - gds-sigp
