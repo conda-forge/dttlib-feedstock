@@ -14,6 +14,11 @@ export LIBRARY_PATH=${PREFIX}/lib
 #    ln -sf ${PREFIX}/lib/libglib-2.0.so.0 ${PREFIX}/lib/libglib-2.0.so
 #fi
 #./gen_stub
+
+
+echo "****** LIBINFO ******"
+file -L ${PREFIX}/libpython*
+
 $PYTHON -m pip install . -vv --no-deps --no-build-isolation
 
 cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
