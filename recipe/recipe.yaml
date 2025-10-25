@@ -42,7 +42,6 @@ requirements:
     - pkg-config
       #- ruff
     - maturin
-    - find-libpython
     - if: build_platform != target_platform
       then:
         - "python"
@@ -61,7 +60,7 @@ requirements:
     - if: build_platform == target_platform
       then: 
        - python
-         #- libpython-static
+    - libpython-static
   run:
     - python
     - gds-sigp
