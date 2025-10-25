@@ -57,7 +57,9 @@ requirements:
     - pip
     - rapidjson
     - zstd
-    - python
+    - if: build_platform == target_platform
+      then: 
+       - python
   run:
     - python
     - gds-sigp
