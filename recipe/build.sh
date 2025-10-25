@@ -5,6 +5,8 @@ export C_INCLUDE_PATH=${PREFIX}/include
 export CPLUS_INCLUDE_PATH=${PREFIX}/include
 export LIBRARY_PATH=${PREFIX}/lib
 export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"
+echo "***** LIBLISTING *****"
+ls -a ${PREFIX}/lib
 # For macOS cross-compilation, point to the correct Python library
 # export PYO3_CROSS_LIB_DIR="${PREFIX}/lib"
 
