@@ -3,7 +3,7 @@
 #export LIBCLANG_PATH=${PREFIX}/lib
 export C_INCLUDE_PATH=${PREFIX}/include
 export CPLUS_INCLUDE_PATH=${PREFIX}/include
-export LIBRARY_PATH=${PREFIX}/lib
+export LIBRARY_PATH=${LIBRARY_PATH}:${PREFIX}/lib
 # export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib ${PREFIX}/lib/python3.12/config-3.12-darwin"
 # export RUSTFLAGS="${RUSTFLAGS} -L${PREFIX/lib}"
 # find ${PREFIX} -name 'libpython*'
@@ -16,8 +16,8 @@ export LIBRARY_PATH=${PREFIX}/lib
 #./gen_stub
 
 
-echo "****** LIBINFO ******"
-file -L "${PREFIX}/libpython*"
+#echo "****** LIBINFO ******"
+#file -L "${PREFIX}/libpython*"
 
 $PYTHON -m pip install . -vv --no-deps --no-build-isolation
 
