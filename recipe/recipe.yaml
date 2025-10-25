@@ -44,7 +44,7 @@ requirements:
     - maturin
     - if: build_platform != target_platform
       then:
-        #- "python"
+        - "python"
         - cross-python_${{ target_platform }}
       else:
         - "python"
