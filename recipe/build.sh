@@ -6,7 +6,7 @@ export CPLUS_INCLUDE_PATH=${PREFIX}/include
 export LIBRARY_PATH=${PREFIX}/lib
 
 # For macOS cross-compilation, point to the correct Python library
-export PYO3_CROSS_LIB_DIR="${PREFIX}/lib"
+# export PYO3_CROSS_LIB_DIR="${PREFIX}/lib"
 
 #if [[ ${target_platform} =~ .*linux.* ]]; then
 #    ln -sf ${PREFIX}/lib/libglib-2.0.so.0 ${PREFIX}/lib/libglib-2.0.so
