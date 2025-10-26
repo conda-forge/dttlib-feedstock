@@ -54,7 +54,6 @@ requirements:
   host:
     - maturin
     - gds-sigp
-    - libclang
     - nds2-client
     - pip
     - rapidjson
@@ -62,6 +61,7 @@ requirements:
     - if: build_platform == target_platform
       then: 
        - python
+       - libclang
       else:
        - libpython-static
   run:
