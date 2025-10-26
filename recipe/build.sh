@@ -4,9 +4,23 @@ export LIBCLANG_PATH=${PREFIX}/lib
 export C_INCLUDE_PATH=${PREFIX}/include
 export CPLUS_INCLUDE_PATH=${PREFIX}/include
 export LIBRARY_PATH=${LIBRARY_PATH}:${PREFIX}/lib
+
+export BINDGEN_EXTRA_CLANG_ARGS="\
+    --sysroot=${PREFIX} \
+    -I${PREFIX}/include \
+    ${CFLAGS}"
+
+# For arm64 macOS cross-compile specifically
+if [[ "$target_platform" == "osx-arm64" ]]; then
+    export BINDGEN_EXTRA_CLANG_ARGS="${BINDGEN_EXTRA_CLANG_ARGS} --target=aarch64-apple-darwin"
+fi
+
 echo "***** PLATFORM *****"
 echo "target_platform=${target_platform}"
 echo "build_platform=${build_platform}"
+echo "PREFIX=${PREFIX}"
+echo "BUILD_PREFIX=${BUILD_PREFIX}"
+echo "LIBCLANG_PATH=${LIBCLANG_PATH}"
 
 echo "CC: $CC"
 echo "CXX: $CXX"
@@ -33,7 +47,6 @@ fi
 
 #echo "****** LIBINFO ******"
 #file -L "${PREFIX}/libpython*"
-
 $PYTHON -m pip install . -vv --no-deps --no-build-isolation
 
 cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
