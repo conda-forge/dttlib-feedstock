@@ -1,6 +1,10 @@
 # Pin clang version for specific targets
-c_compiler_version:              # [osx and arm64]
+c_compiler_version:              
   - 19                           # [osx and arm64]
+  - 18  # [osx and x86_64]
+  - 18  # [linux]
   
-cxx_compiler_version:              # [osx and arm64]
+cxx_compiler_version:            
   - 19                           # [osx and arm64]
+  - 18  # [osx and x86_64]
+  - 18  # [linux]
