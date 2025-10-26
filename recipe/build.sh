@@ -5,6 +5,10 @@ export C_INCLUDE_PATH=${PREFIX}/include
 export CPLUS_INCLUDE_PATH=${PREFIX}/include
 export LIBRARY_PATH=${PREFIX}/lib
 
+if [[ "$PY_VER" == "3.14" ]]; then
+    export PYO3_USE_ABI3_FORWARD_COMPATIBILITY=1
+fi
+
 if [[ ${target_platform} =~ .*linux.* ]]; then
     ln -sf ${PREFIX}/lib/libglib-2.0.so.0 ${PREFIX}/lib/libglib-2.0.so
 fi
