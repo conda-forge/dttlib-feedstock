@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#export LIBCLANG_PATH=${PREFIX}/lib
+export LIBCLANG_PATH=${PREFIX}/lib
 export C_INCLUDE_PATH=${PREFIX}/include
 export CPLUS_INCLUDE_PATH=${PREFIX}/include
 export LIBRARY_PATH=${LIBRARY_PATH}:${PREFIX}/lib
