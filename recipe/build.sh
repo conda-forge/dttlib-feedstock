@@ -4,7 +4,13 @@ export LIBCLANG_PATH=${PREFIX}/lib
 export C_INCLUDE_PATH=${PREFIX}/include
 export CPLUS_INCLUDE_PATH=${PREFIX}/include
 export LIBRARY_PATH=${LIBRARY_PATH}:${PREFIX}/lib
-export PYO3_CROSS_LIB_DIR=${PREFIX}/lib
+echo "***** PLATFORM *****"
+echo "target_platform=${target_platform}"
+echo "build_platform=${build_platform}"
+if [[ "$target_platform" == "osx-arm" ]]
+then
+	export PYO3_CROSS_LIB_DIR=${PREFIX}/lib
+fi
 # export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib ${PREFIX}/lib/python3.12/config-3.12-darwin"
 # export RUSTFLAGS="${RUSTFLAGS} -L${PREFIX/lib}"
 # find ${PREFIX} -name 'libpython*'
