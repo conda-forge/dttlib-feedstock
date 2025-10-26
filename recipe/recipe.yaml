@@ -47,7 +47,6 @@ requirements:
       then:
         - "python"
         - cross-python_${{ target_platform }}
-        - libllvm19
       else:
         - "python"
       

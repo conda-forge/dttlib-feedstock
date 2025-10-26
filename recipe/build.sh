@@ -10,6 +10,8 @@ echo "build_platform=${build_platform}"
 if [[ "$target_platform" == "osx-arm64" ]]
 then
 	export PYO3_CROSS_LIB_DIR=${PREFIX}/lib
+	export CARGO_TARGET_AARCH64_APPLE_DARWIN_LINKER=${CC}
+	export RUSTFLAGS="-C linker=${CC}"
 fi
 # export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib ${PREFIX}/lib/python3.12/config-3.12-darwin"
 # export RUSTFLAGS="${RUSTFLAGS} -L${PREFIX/lib}"
