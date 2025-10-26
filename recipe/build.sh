@@ -7,7 +7,7 @@ export LIBRARY_PATH=${LIBRARY_PATH}:${PREFIX}/lib
 echo "***** PLATFORM *****"
 echo "target_platform=${target_platform}"
 echo "build_platform=${build_platform}"
-if [[ "$target_platform" == "osx-arm" ]]
+if [[ "$target_platform" == "osx-arm64" ]]
 then
 	export PYO3_CROSS_LIB_DIR=${PREFIX}/lib
 fi
