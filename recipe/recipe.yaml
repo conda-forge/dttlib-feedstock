@@ -41,7 +41,7 @@ requirements:
     - make
     - pkg-config
       #- ruff
-    - maturin
+      #- maturin
       #- libpython-static
     - if: build_platform != target_platform
       then:
