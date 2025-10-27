@@ -27,12 +27,33 @@ echo "CXX: $CXX"
 $CC --version
 $CXX --version
 
-if [[ "$target_platform" == "osx-arm64" ]]
-then
-	export PYO3_CROSS_LIB_DIR=${PREFIX}/lib
-	export CARGO_TARGET_AARCH64_APPLE_DARWIN_LINKER=${CC}
-	export RUSTFLAGS="-C linker=${CC}"
+echo "=== Searching for libclang.dylib ==="
+find "${BUILD_PREFIX}" -name "libclang.dylib" 2>/dev/null || echo "Not in BUILD_PREFIX"
+find "${PREFIX}" -name "libclang.dylib" 2>/dev/null || echo "Not in PREFIX"
+find "${CONDA_PREFIX}" -name "libclang.dylib" 2>/dev/null || echo "Not in CONDA_PREFIX"
+
+# Check what's in the expected location
+echo "=== Contents of BUILD_PREFIX/lib ==="
+ls -la "${BUILD_PREFIX}/lib" | grep -i clang || echo "No clang libraries found"
+
+# Set and verify
+export LIBCLANG_PATH="${BUILD_PREFIX}/lib"
+echo "=== LIBCLANG_PATH set to: ${LIBCLANG_PATH} ==="
+
+# Check if the file exists where we pointed
+if [[ -f "${LIBCLANG_PATH}/libclang.dylib" ]]; then
+    echo "✓ Found libclang.dylib"
+    ls -lh "${LIBCLANG_PATH}/libclang.dylib"
+else
+    echo "✗ libclang.dylib NOT found at ${LIBCLANG_PATH}"
 fi
+
+#if [[ "$target_platform" == "osx-arm64" ]]
+#then
+#	export PYO3_CROSS_LIB_DIR=${PREFIX}/lib
+#	export CARGO_TARGET_AARCH64_APPLE_DARWIN_LINKER=${CC}
+#	export RUSTFLAGS="-C linker=${CC}"
+#fi
 # export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib ${PREFIX}/lib/python3.12/config-3.12-darwin"
 # export RUSTFLAGS="${RUSTFLAGS} -L${PREFIX/lib}"
 # find ${PREFIX} -name 'libpython*'
