@@ -69,8 +69,8 @@ requirements:
     - gds-sigp
 
 tests:
-  - if: not osx
-    then:
+  #- if: not osx
+    #  then:
       - requirements:
           run:
             - pytest
