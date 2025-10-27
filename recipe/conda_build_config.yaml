@@ -1,8 +1,20 @@
+
 c_compiler:
-  - clang
-c_compiler_version:
-  - 18
+  - clang        # [linux]
+  - clang        # [osx]
+  
 cxx_compiler:
-  - clangxx
-cxx_compiler_version:
-  - 18
+  - clangxx      # [linux]
+  - clangxx      # [osx]
+
+
+# Pin clang version for specific targets
+c_compiler_version:              
+  - 19                           # [osx and arm64]
+  - 18  # [osx and x86_64]
+  - 18  # [linux]
+  
+cxx_compiler_version:            
+  - 19                           # [osx and arm64]
+  - 18  # [osx and x86_64]
+  - 18  # [linux]
