@@ -5,16 +5,16 @@ export C_INCLUDE_PATH=${PREFIX}/include
 export CPLUS_INCLUDE_PATH=${PREFIX}/include
 export LIBRARY_PATH=${LIBRARY_PATH}:${PREFIX}/lib
 
-export BINDGEN_EXTRA_CLANG_ARGS="\
-    --sysroot=${PREFIX} \
-    -I${PREFIX}/include \
-    ${CFLAGS}"
-
-# For arm64 macOS cross-compile specifically
-if [[ "$target_platform" == "osx-arm64" ]]; then
-    export BINDGEN_EXTRA_CLANG_ARGS="${BINDGEN_EXTRA_CLANG_ARGS} --target=aarch64-apple-darwin"
-fi
-
+#export BINDGEN_EXTRA_CLANG_ARGS="\
+#    --sysroot=${PREFIX} \
+#    -I${PREFIX}/include \
+#    ${CFLAGS}"
+#
+## For arm64 macOS cross-compile specifically
+#if [[ "$target_platform" == "osx-arm64" ]]; then
+#    export BINDGEN_EXTRA_CLANG_ARGS="${BINDGEN_EXTRA_CLANG_ARGS} --target=aarch64-apple-darwin"
+#fi
+#
 echo "***** PLATFORM *****"
 echo "target_platform=${target_platform}"
 echo "build_platform=${build_platform}"
@@ -37,7 +37,6 @@ echo "=== Contents of BUILD_PREFIX/lib ==="
 ls -la "${BUILD_PREFIX}/lib" | grep -i clang || echo "No clang libraries found"
 
 # Set and verify
-export LIBCLANG_PATH="${BUILD_PREFIX}/lib"
 echo "=== LIBCLANG_PATH set to: ${LIBCLANG_PATH} ==="
 
 # Check if the file exists where we pointed
@@ -48,12 +47,13 @@ else
     echo "✗ libclang.dylib NOT found at ${LIBCLANG_PATH}"
 fi
 
-#if [[ "$target_platform" == "osx-arm64" ]]
-#then
-#	export PYO3_CROSS_LIB_DIR=${PREFIX}/lib
-#	export CARGO_TARGET_AARCH64_APPLE_DARWIN_LINKER=${CC}
-#	export RUSTFLAGS="-C linker=${CC}"
-#fi
+if [[ "$target_platform" == "osx-arm64" ]]
+then
+	export PYO3_CROSS_LIB_DIR=${PREFIX}/lib
+	export CARGO_TARGET_AARCH64_APPLE_DARWIN_LINKER=${CC}
+	export RUSTFLAGS="-C linker=${CC}"
+	export LIBCLANG_PATH="${BUILD_PREFIX}/lib"
+fi
 # export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib ${PREFIX}/lib/python3.12/config-3.12-darwin"
 # export RUSTFLAGS="${RUSTFLAGS} -L${PREFIX/lib}"
 # find ${PREFIX} -name 'libpython*'

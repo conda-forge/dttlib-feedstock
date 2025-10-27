@@ -50,7 +50,6 @@ requirements:
         - libclang
       else:
         - "python"
-        - libclang
       
   host:
     - maturin
