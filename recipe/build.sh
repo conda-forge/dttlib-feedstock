@@ -51,7 +51,7 @@ if [[ "$target_platform" == "osx-arm64" ]]
 then
 	export PYO3_CROSS_LIB_DIR=${PREFIX}/lib
 	export CARGO_TARGET_AARCH64_APPLE_DARWIN_LINKER=${CC}
-	export RUSTFLAGS="-C linker=${CC}"
+	#export RUSTFLAGS="-C linker=${CC}"
 	export LIBCLANG_PATH="${BUILD_PREFIX}/lib"
 fi
 # export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib ${PREFIX}/lib/python3.12/config-3.12-darwin"
