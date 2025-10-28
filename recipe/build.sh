@@ -3,7 +3,7 @@
 export LIBCLANG_PATH=${PREFIX}/lib
 export C_INCLUDE_PATH=${PREFIX}/include
 export CPLUS_INCLUDE_PATH=${PREFIX}/include
-#export LIBRARY_PATH=${LIBRARY_PATH}:${PREFIX}/lib
+export LIBRARY_PATH=${LIBRARY_PATH}:${PREFIX}/lib
 
 #export BINDGEN_EXTRA_CLANG_ARGS="\
 #    --sysroot=${PREFIX} \
@@ -53,6 +53,7 @@ then
 	#export CARGO_TARGET_AARCH64_APPLE_DARWIN_LINKER=${CC}
 	#export RUSTFLAGS="-C linker=${CC}"
 	export LIBCLANG_PATH="${BUILD_PREFIX}/lib"
+	export LIBRARY_PATH="${LIBRARY_PATH}:${BUILD_PREFIX}/lib"
 fi
 # export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib ${PREFIX}/lib/python3.12/config-3.12-darwin"
 # export RUSTFLAGS="${RUSTFLAGS} -L${PREFIX/lib}"
