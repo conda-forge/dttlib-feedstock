@@ -45,7 +45,7 @@ requirements:
       #- libpython-static
     - if: build_platform != target_platform
       then:
-        #- "python"
+        - "python"
         - cross-python_${{ target_platform }}
         - libclang
       else:
