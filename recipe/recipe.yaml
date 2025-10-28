@@ -63,7 +63,7 @@ requirements:
        - python
        - libclang
       else:
-       - libpython-static
+       - python 
   run:
     - python
     - gds-sigp
