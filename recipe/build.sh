@@ -3,7 +3,6 @@
 export LIBCLANG_PATH=${PREFIX}/lib
 export C_INCLUDE_PATH=${PREFIX}/include
 export CPLUS_INCLUDE_PATH=${PREFIX}/include
-export LIBRARY_PATH=${LIBRARY_PATH}:${PREFIX}/lib
 
 #export BINDGEN_EXTRA_CLANG_ARGS="\
 #    --sysroot=${PREFIX} \
@@ -47,6 +46,11 @@ else
     echo "✗ libclang.dylib NOT found at ${LIBCLANG_PATH}"
 fi
 
+echo "=== Searching for libpython ==="
+find "${BUILD_PREFIX}" -name "libpython*" 2>/dev/null || echo "Not in BUILD_PREFIX"
+find "${PREFIX}" -name "libpython*" 2>/dev/null || echo "Not in PREFIX"
+find "${CONDA_PREFIX}" -name "libpython*" 2>/dev/null || echo "Not in CONDA_PREFIX"
+
 if [[ "$target_platform" == "osx-arm64" ]]
 then
 	#export PYO3_CROSS_LIB_DIR=${PREFIX}/lib
@@ -54,6 +58,8 @@ then
 	#export RUSTFLAGS="-C linker=${CC}"
 	export LIBCLANG_PATH="${BUILD_PREFIX}/lib"
 	export LIBRARY_PATH="${LIBRARY_PATH}:${BUILD_PREFIX}/lib"
+else
+	export LIBRARY_PATH=${LIBRARY_PATH}:${PREFIX}/lib
 fi
 # export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib ${PREFIX}/lib/python3.12/config-3.12-darwin"
 # export RUSTFLAGS="${RUSTFLAGS} -L${PREFIX/lib}"
