@@ -26,6 +26,8 @@ build:
 
 requirements:
   build:
+    - make
+    - pkg-config
     - python
     - cargo-bundle-licenses
     - "${{ compiler('rust') }}"
