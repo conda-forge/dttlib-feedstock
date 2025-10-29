@@ -61,7 +61,7 @@ then
 else
 	export LIBRARY_PATH=${LIBRARY_PATH}:${PREFIX}/lib
 fi
-# export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib ${PREFIX}/lib/python3.12/config-3.12-darwin"
+export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"
 # export RUSTFLAGS="${RUSTFLAGS} -L${PREFIX/lib}"
 # find ${PREFIX} -name 'libpython*'
 # For macOS cross-compilation, point to the correct Python library
