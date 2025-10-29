@@ -57,7 +57,7 @@ then
 	#export CARGO_TARGET_AARCH64_APPLE_DARWIN_LINKER=${CC}
 	#export RUSTFLAGS="-C linker=${CC}"
 	export LIBCLANG_PATH="${BUILD_PREFIX}/lib"
-	export LIBRARY_PATH="${LIBRARY_PATH}:${BUILD_PREFIX}/lib"
+	export LIBRARY_PATH="${LIBRARY_PATH}:${PREFIX}/lib"
 else
 	export LIBRARY_PATH=${LIBRARY_PATH}:${PREFIX}/lib
 fi
