@@ -22,7 +22,7 @@ build:
       PYTHONIOENCODING: utf-8
     content:
       - "cargo-bundle-licenses --format yaml --output THIRDPARTY.yml"
-      - "${{ PYTHON }} -m pip install -v --use-pep517 --no-deps --no-build-isolation ./ligo_hires_gps_time"
+      - "${{ PYTHON }} -m pip install -v --use-pep517 --no-deps --no-build-isolation ."
 
 requirements:
   build:
