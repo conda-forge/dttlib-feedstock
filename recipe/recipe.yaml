@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: "dttlib"
-  version: "0.9.1"
+  version: "0.9.4"
 
 package:
   name: ${{ name }}
@@ -10,75 +10,62 @@ package:
 
 source:
   url: https://git.ligo.org/cds/software/cr_tools/dttlib/-/archive/${{ version }}/${{ version }}.tar.gz
-  sha256: f5fbb01a884315c3fe887f9efb1e9020e8e8cfac3f4c10b859edd1b77448373f
+  sha256: bb7b0939d39ad0500b23dedcebd551b375d291361a8a9c4ca998bfe46bcc631c 
+
 
 build:
-  skip: win
-    #error_overlinking: true
-    #error_overdepending: true
-  number: 2
-    # ignore_run_exports:
-    #   - libclang13
-    #   - zstd
-      # run_exports:
-      #   - if: osx
-      #     then:
-      #       - libosxunwind
+  number: 0
 
-  #script_env:
-  #  - RUSTFLAGS=-C link-arg=-lunwind  # [osx and arm64]
+  script:
+    env:
+      JEMALLOC_SYS_WITH_LG_PAGE: ${{ '16' if (aarch64 or ppc64le) else '' }}
+      PYTHONIOENCODING: utf-8
 
 requirements:
   build:
-    - "${{ compiler('c') }}"
-    - "${{ stdlib('c') }}"
-    - "${{ compiler('cxx') }}"
-    - "${{ compiler('rust') }}"
-      #   - if: osx
-      #     then:
-      #       - libosxunwind
-    - cargo-bundle-licenses
     - make
     - pkg-config
-      #- ruff
-    - maturin
-      #- libpython-static
+    - python
+    - cargo-bundle-licenses
+    - "${{ compiler('rust') }}"
+    - if: not win
+      then:
+        - "${{ compiler('c') }}" 
+        - "${{ stdlib('c') }}"
+        - "${{ compiler('cxx') }}"
+        - "${{ compiler('rust') }}"
     - if: build_platform != target_platform
       then:
-        - "python"
         - cross-python_${{ target_platform }}
-        - libclang
-      else:
-        - "python"
-      
+        - maturin
+
   host:
-    - maturin
-    - gds-sigp
-    - nds2-client
+    - python
     - pip
+    - maturin
+    - nds2-client
     - rapidjson
-    - zstd    
-    - if: build_platform == target_platform
-      then: 
-       - python
-       - libclang
-      else:
-       - libpython-static
+    - zstd
+
   run:
     - python
-    - gds-sigp
+    - cffi
+
+
+  ignore_run_exports:
+    from_package:
+      - cross-python_${{ target_platform }}
+
 
 tests:
-  - if: not osx
-    then:
-      - requirements:
-          run:
-            - pytest
-        files:
-          source:
-            - test_dttlib.py
-        script:
-          - pytest
+  - requirements:
+      run:
+        - pytest
+    files:
+      source:
+        - test_dttlib.py
+    script:
+      - pytest
 
 about:
   homepage: https://git.ligo.org/cds/software/cr_tools/dttlib
