@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: "dttlib"
-  version: "0.9.1"
+  version: "0.9.4"
 
 package:
   name: ${{ name }}
@@ -10,13 +10,13 @@ package:
 
 source:
   url: https://git.ligo.org/cds/software/cr_tools/dttlib/-/archive/${{ version }}/${{ version }}.tar.gz
-  sha256: f5fbb01a884315c3fe887f9efb1e9020e8e8cfac3f4c10b859edd1b77448373f
+  sha256: bb7b0939d39ad0500b23dedcebd551b375d291361a8a9c4ca998bfe46bcc631c 
 
 build:
   skip: win
     #error_overlinking: true
     #error_overdepending: true
-  number: 2
+  number: 0
     # ignore_run_exports:
     #   - libclang13
     #   - zstd
@@ -63,22 +63,20 @@ requirements:
        - python
        - libclang
       else:
-       - libpython-static
+       - python 
   run:
     - python
     - gds-sigp
 
 tests:
-  - if: not osx
-    then:
-      - requirements:
-          run:
-            - pytest
-        files:
-          source:
-            - test_dttlib.py
-        script:
+    - requirements:
+        run:
           - pytest
+      files:
+        source:
+          - test_dttlib.py
+      script:
+        - pytest
 
 about:
   homepage: https://git.ligo.org/cds/software/cr_tools/dttlib
