@@ -56,6 +56,7 @@ then
 	#export PYO3_CROSS_LIB_DIR=${PREFIX}/lib
 	#export CARGO_TARGET_AARCH64_APPLE_DARWIN_LINKER=${CC}
 	#export RUSTFLAGS="-C linker=${CC}"
+	export RUSTFLAGS="-C link-arg=-Wl,-undefined,dynamic_lookup"
 	export LIBCLANG_PATH="${BUILD_PREFIX}/lib"
 	export LIBRARY_PATH="${LIBRARY_PATH}:${PREFIX}/lib"
 else
