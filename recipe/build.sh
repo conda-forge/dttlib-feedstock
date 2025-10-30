@@ -4,7 +4,8 @@ export CPLUS_INCLUDE_PATH=${PREFIX}/include
 
 if [[ ${target_platform} == "osx-arm64" ]]
 then
-	export RUSTFLAGS="-C link-arg=-Wl,-undefined,dynamic_lookup"
+	export PYO3_CROSS_LIB_DIR=${PREFIX}/lib
+	export RUSTFLAGS="-C linker=${CC} -C link-arg=-Wl,-undefined,dynamic_lookup"
 fi
 
 cargo-bundle-licenses --format yaml --output THIRDPARTY.yml                                  
