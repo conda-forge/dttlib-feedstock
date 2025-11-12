@@ -35,9 +35,8 @@ requirements:
       #     then:
       #       - libosxunwind
     - cargo-bundle-licenses
-    - if: win
+    - if: not win
       then:
-      else:
        - make
        - pkg-config
       #- ruff
