@@ -3,6 +3,7 @@
 set LIBCLANG_PATH=%PREFIX%/lib
 set C_INCLUDE_PATH=%PREFIX%/include
 set CPLUS_INCLUDE_PATH=%PREFIX%/include
+set PYTHONENCODING="utf-8"
 
 
 %PYTHON% -m pip install . -vv --no-deps --no-build-isolation
