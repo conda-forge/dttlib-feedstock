@@ -1,5 +1,5 @@
 
-set LIBCLANG_PATH=%PREFIX%\\lib
+set LIBCLANG_PATH=%PREFIX%\Library\bin
 set PYO3_PYTHON=%PYTHON%
 set C_INCLUDE_PATH=%PREFIX%\Library\include
 set CPLUS_INCLUDE_PATH=%PREFIX%\Library\include
@@ -7,7 +7,9 @@ set PYTHONIOENCODING="utf-8"
 set RUST_BACKTRACE=1
 
 echo LIBCLANG_PATH=%LIBCLANG_PATH%
-dir /s %PREFIX%
+
+copy %LIBCLANG_PATH%\libclang*.dll libclang.dll
+dir %LIBCLANG_PATH%
 
 
 %PYTHON% -m pip install . -vv --no-deps --no-build-isolation
