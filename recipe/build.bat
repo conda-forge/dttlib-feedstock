@@ -8,7 +8,7 @@ set RUST_BACKTRACE=1
 
 echo LIBCLANG_PATH=%LIBCLANG_PATH%
 
-copy %LIBCLANG_PATH%\libclang*.dll libclang.dll
+copy %LIBCLANG_PATH%\libclang*.dll %LIBCLANG_PATH%\libclang.dll
 dir %LIBCLANG_PATH%
 
 
