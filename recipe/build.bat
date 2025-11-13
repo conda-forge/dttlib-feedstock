@@ -6,6 +6,9 @@ set CPLUS_INCLUDE_PATH=%PREFIX%\Library\include
 set PYTHONIOENCODING="utf-8"
 set RUST_BACKTRACE=1
 
+echo LIBCLANG_PATH=%LIBCLANG_PATH%
+dir /s %PREFIX%
+
 
 %PYTHON% -m pip install . -vv --no-deps --no-build-isolation
 if errorlevel 1 exit 1
