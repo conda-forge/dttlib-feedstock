@@ -9,7 +9,8 @@ set RUST_BACKTRACE=1
 echo LIBCLANG_PATH=%LIBCLANG_PATH%
 
 copy %LIBCLANG_PATH%\libclang*.dll %LIBCLANG_PATH%\libclang.dll
-dir %LIBCLANG_PATH%
+echo **********
+dir %LIBCLANG_PATH%\*clang*
 
 
 %PYTHON% -m pip install . -vv --no-deps --no-build-isolation
