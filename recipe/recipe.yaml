@@ -40,6 +40,9 @@ requirements:
       then:
        - make
        - pkg-config
+      else:
+       - libclang
+       - clang
       #- ruff
     - maturin
       #- libpython-static
