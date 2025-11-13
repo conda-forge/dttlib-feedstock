@@ -1,8 +1,8 @@
 #!/bin/sh
 
-set LIBCLANG_PATH=%PREFIX%/lib
-set C_INCLUDE_PATH=%PREFIX%/include
-set CPLUS_INCLUDE_PATH=%PREFIX%/include
+set LIBCLANG_PATH=%PREFIX%\Library\lib
+set C_INCLUDE_PATH=%PREFIX%\Library\include
+set CPLUS_INCLUDE_PATH=%PREFIX%\Library\include
 set PYTHONIOENCODING="utf-8"
 set RUST_BACKTRACE=1
 
