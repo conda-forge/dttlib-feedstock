@@ -12,7 +12,7 @@ source:
   url: https://git.ligo.org/cds/software/cr_tools/dttlib/-/archive/${{ version }}/${{ version }}.tar.gz
   sha256: e02d010c6f6fc96a18390edee04ad36253972e0d7e864de988cc40c5ec3aaa28
   patches:
-    - drop_bingen_complex.patch
+    - drop_bindgen_complex.patch
 
 build:
   number: 1
