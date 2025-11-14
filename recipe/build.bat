@@ -7,7 +7,7 @@ set PYTHONIOENCODING="utf-8"
 set RUST_BACKTRACE=1
 
 echo LIBCLANG_PATH=%LIBCLANG_PATH%
-mklink /j %LIBCLANG_PATH%\libclang.dll libclang-13.dll
+copy %LIBCLANG_PATH%\libclang-13.dll %LIBCLANG_PATH%\libclang.dll
 echo "++++++++++++++++++"
 dir /s %LIBCLANG_PATH%\*clang*
 
