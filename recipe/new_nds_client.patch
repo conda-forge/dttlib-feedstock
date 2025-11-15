@@ -1,0 +1,24 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index c6100e4..4070653 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -81,8 +81,8 @@ pyo3-log = {version="0.12"}
+ num-rational = {version = "0.4"}
+ 
+ # ligo
+-nds2_client_rs = { git="https://git.ligo.org/erik.vonreis/nds_client_rs.git", tag = "dev_1", optional = true }
+-nds-cache-rs = { git = "https://git.ligo.org/cds/software/cr_tools/nds-cache-rs.git", tag = "dev_25"}
++nds2_client_rs = { git="https://git.ligo.org/erik.vonreis/nds_client_rs.git", tag = "dev_2", optional = true }
++nds-cache-rs = { git = "https://git.ligo.org/cds/software/cr_tools/nds-cache-rs.git", tag = "dev_26"}
+ ligo_hires_gps_time = {workspace = true}
+ 
+ # workspace
+@@ -131,7 +131,7 @@ maintenance = { status = "actively-developed" }
+ [patch.'https://git.ligo.org/erik.vonreis/nds_client_rs.git']
+ #nds2_client_rs = { git="https://git.ligo.org/nds/nds_client_rs" }
+ #nds2_client_rs = { git="https://git.ligo.org/jonathan-hanks/nds_client_rs", branch = "serialize_connects"}
+-#nds2_client_rs = { git="https://git.ligo.org/erik.vonreis/nds_client_rs", tag = "dev_c"}
++#nds2_client_rs = { git="https://git.ligo.org/erik.vonreis/nds_client_rs", tag = "dev_2"}
+ #nds2_client_rs = {path="../nds_client_rs", optional = true}
+ 
+ [patch.'https://git.ligo.org/cds/software/cr_tools/nds-cache-rs.git']
