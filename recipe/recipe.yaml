@@ -14,6 +14,7 @@ source:
   patches:
     - drop_bindgen_complex.patch
     - explicit_nds_link.patch
+    - new_nds_client.patch
 
 build:
   number: 1
