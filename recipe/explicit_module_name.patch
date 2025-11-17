@@ -1,12 +1,12 @@
 diff --git a/pyproject.toml b/pyproject.toml
-index f6d2771..211f743 100644
+index f6d2771..c609f3f 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -21,6 +21,7 @@ requires = ["setuptools", "wheel>0.36.2", "patchelf", "maturin>=1.8,<2.0"]
  build-backend = "maturin"
  
  [tool.maturin]
-+module-name = "dttlib._lib_name"
++module-name = "dttlib.dttlib"
  features = ["all", "extension"]
  args = ["--target-dir", "target_python"]
  
