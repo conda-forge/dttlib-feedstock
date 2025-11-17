@@ -84,6 +84,8 @@ tests:
         source:
           - test_dttlib.py
       script:
+        - python -c "import sys; print("*** PYTHON_PATH ***"); print(sys.path)"
+        - dir /s dttlib*.pyd
         - pytest
 
 about:
