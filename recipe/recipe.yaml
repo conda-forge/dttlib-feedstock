@@ -85,7 +85,9 @@ tests:
           - test_dttlib.py
       script:
         - python -c "import sys; print('*** PYTHON_PATH ***'); print(sys.path)"
-        - dir /s dttlib*.pyd
+        - if: win
+          then:
+           - dir /s dttlib*.pyd
         - python -c "import dttlib"
         - pytest
 
