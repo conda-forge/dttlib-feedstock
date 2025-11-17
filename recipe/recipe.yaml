@@ -86,6 +86,7 @@ tests:
       script:
         - python -c "import sys; print("*** PYTHON_PATH ***"); print(sys.path)"
         - dir /s dttlib*.pyd
+        - python -c "import dttlib"
         - pytest
 
 about:
