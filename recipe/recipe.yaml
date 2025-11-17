@@ -87,7 +87,7 @@ tests:
         - python -c "import sys; print('*** PYTHON_PATH ***'); print(sys.path)"
         - if: win
           then:
-            - dir /s d:\\build\\dttlib*.pyd
+            - dir /s d:\bld\dttlib*.pyd
         - python -c "import dttlib"
         - pytest
 
