@@ -88,7 +88,8 @@ tests:
         - if: win
           then:
             - dir /s %PREFIX%\dttlib*.pyd
-            - copy %PREFIX%\test_run_env\Lib\site-packages\dttlib\dttlib.cp312-win_amd64.pyd %PREFIX%\test_run_env\Lib\site-packages\dttlib\dttlib.pyd
+              #            - copy %PREFIX%\test_run_env\Lib\site-packages\dttlib\dttlib.cp312-win_amd64.pyd %PREFIX%\test_run_env\Lib\site-packages\dttlib\dttlib.pyd
+            - dumpbin /IMPORT %PREFIX%\Lib\site-packages\dttlib\dttlib.*.pyd
             - dir /s %PREFIX%\*.pyd
         - python -c "import dttlib"
         - pytest
