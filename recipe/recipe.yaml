@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: "dttlib"
-  version: "0.9.5"
+  version: "0.9.6"
 
 package:
   name: ${{ name }}
@@ -10,13 +10,15 @@ package:
 
 source:
   url: https://git.ligo.org/cds/software/cr_tools/dttlib/-/archive/${{ version }}/${{ version }}.tar.gz
-  sha256: 515e7c9289ef03c3da0a321c6f405d02a60023a5286c2d1a3bdb147d7e431c89 
+  sha256: e02d010c6f6fc96a18390edee04ad36253972e0d7e864de988cc40c5ec3aaa28
+  patches:
+    - drop_bindgen_complex.patch
+    - explicit_nds_link.patch
+    - new_nds_client.patch
+    - explicit_module_name.patch
 
 build:
-  skip: win
-    #error_overlinking: true
-    #error_overdepending: true
-  number: 0
+  number: 1
     # ignore_run_exports:
     #   - libclang13
     #   - zstd
@@ -38,8 +40,14 @@ requirements:
       #     then:
       #       - libosxunwind
     - cargo-bundle-licenses
-    - make
-    - pkg-config
+    - cmake
+    - if: not win
+      then:
+       - make
+       - pkg-config
+      else:
+       - libclang
+       - clang
       #- ruff
     - maturin
       #- libpython-static
@@ -76,6 +84,14 @@ tests:
         source:
           - test_dttlib.py
       script:
+        - python -c "import sys; print('*** PYTHON_PATH ***'); print(sys.path)"
+        - if: win
+          then:
+            - dir /s %PREFIX%\dttlib*.pyd
+            - copy %PREFIX%\Lib\site-packages\dttlib\dttlib.*.pyd %PREFIX%\Lib\site-packages\dttlib\dttlib.pyd
+              #            - dumpbin /IMPORT %PREFIX%\Lib\site-packages\dttlib\dttlib.*.pyd
+            - dir /s %PREFIX%\*.pyd
+        - python -c "import dttlib"
         - pytest
 
 about:
