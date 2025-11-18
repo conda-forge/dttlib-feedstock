@@ -87,8 +87,9 @@ tests:
         - python -c "import sys; print('*** PYTHON_PATH ***'); print(sys.path)"
         - if: win
           then:
-            - copy d:\bld\test\test_dttlibDjL4U2\test_run_env\Lib\site-packages\dttlib\dttlib.cp312-win_amd64.pyd d:\bld\test\test_dttlibDjL4U2\test_run_env\Lib\site-packages\dttlib\dttlib.pyd
-            - dir /s d:\bld\dttlib*.pyd
+            - dir /s %PREFIX%\dttlib*.pyd
+            - copy %PREFIX%\test_run_env\Lib\site-packages\dttlib\dttlib.cp312-win_amd64.pyd %PREFIX%\test_run_env\Lib\site-packages\dttlib\dttlib.pyd
+            - dir /s %PREFIX%\*.pyd
         - python -c "import dttlib"
         - pytest
 
