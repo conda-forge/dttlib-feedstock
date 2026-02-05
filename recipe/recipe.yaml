@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: "dttlib"
-  version: "0.10.3"
+  version: "0.10.4"
 
 package:
   name: ${{ name }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://git.ligo.org/cds/software/cr_tools/dttlib/-/archive/${{ version }}/${{ version }}.tar.gz
-  sha256: 0f1f16e05a66bfe71cb67c8339195be3968e4d8d11289d127865d2a36b2c251d 
+  sha256: 3ee6f78d5e9deca189275f7375d5cd7e18f77020a5d994d4662cf98e81124d9b
 
 build:
   skip: win
@@ -51,33 +51,32 @@ requirements:
         - libclang
       else:
         - "python"
-      
   host:
     - maturin
     - gds-sigp
     - nds2-client
     - pip
     - rapidjson
-    - zstd    
+    - zstd
     - if: build_platform == target_platform
-      then: 
-       - python
-       - libclang
+      then:
+        - python
+        - libclang
       else:
-       - python 
+        - python
   run:
     - python
     - gds-sigp
 
 tests:
-    - requirements:
-        run:
-          - pytest
-      files:
-        source:
-          - test_dttlib.py
-      script:
+  - requirements:
+      run:
         - pytest
+    files:
+      source:
+        - test_dttlib.py
+    script:
+      - pytest
 
 about:
   homepage: https://git.ligo.org/cds/software/cr_tools/dttlib
