@@ -54,6 +54,7 @@ requirements:
   host:
     - maturin
     - gds-sigp
+    - libxml2
     - nds2-client
     - pip
     - rapidjson
