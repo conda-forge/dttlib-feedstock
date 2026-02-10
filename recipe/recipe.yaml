@@ -54,6 +54,9 @@ requirements:
   host:
     - maturin
     - gds-sigp
+    # libxml2 made explicit 
+    # so we can reconcile a conflict with root_base
+    - libxml2
     - nds2-client
     - pip
     - rapidjson
