@@ -73,7 +73,7 @@ then
 	# needs to use gnu linker
 	# since gcc object files can't be linked by lld
 	export RUSTFLAGS="-C link-arg=-fuse-ld=bfd -C link-arg=-L${PREFIX}/lib"
-elif [[ "$target_platform" == "linux_aarch64" ]]
+elif [[ "$target_platform" == "linux-aarch64" ]]
 then
 	echo "***** aarch64"
 	export RUSTFLAGS="-C link-args=-L${PREFIX}/lib"
