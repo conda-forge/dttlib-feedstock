@@ -74,7 +74,7 @@ then
 	# since gcc object files can't be linked by lld
 	export RUSTFLAGS="-C link-arg=-fuse-ld=bfd -C link-arg=-L${PREFIX}/lib"
 elif [[ "$target_platform" == "linux_aarch64" ]]
-else
+then
 	echo "***** aarch64"
 	export RUSTFLAGS="-C link-args=-L${PREFIX}/lib"
 else
