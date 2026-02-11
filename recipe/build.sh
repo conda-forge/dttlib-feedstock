@@ -1,8 +1,17 @@
 #!/bin/sh
 
+if [[ ${target_platform} == ${build_platform} ]]
+then
 export LIBCLANG_PATH=${PREFIX}/lib
+else
+export LIBCLANG_PATH=${BUILD_PREFIX}/lib
+fi
+
 export C_INCLUDE_PATH=${PREFIX}/include
 export CPLUS_INCLUDE_PATH=${PREFIX}/include
+
+export CARGO_TARGET_POWERPC64LE_UNKNOWN_LINUX_GNU_LINKER="${CC}"
+export CARGO_TARGET_POWERPC64LE_UNKNOWN_LINUX_GNU_RUSTFLAGS="-C link-arg=-fuse-ld=bfd -C link-arg=-L${PREFIX}/lib"
 
 #export BINDGEN_EXTRA_CLANG_ARGS="\
 #    --sysroot=${PREFIX} \
@@ -57,9 +66,20 @@ then
 	#export CARGO_TARGET_AARCH64_APPLE_DARWIN_LINKER=${CC}
 	#export RUSTFLAGS="-C linker=${CC}"
 	export RUSTFLAGS="-C link-arg=-Wl,-undefined,dynamic_lookup"
-	export LIBCLANG_PATH="${BUILD_PREFIX}/lib"
 	export LIBRARY_PATH="${LIBRARY_PATH}:${PREFIX}/lib"
+elif [[ "$target_platform" == "linux-ppc64le" ]]
+then
+	echo "***** powerpc"
+	# needs to use gnu linker
+	# since gcc object files can't be linked by lld
+	export RUSTFLAGS="-C link-arg=-fuse-ld=bfd -C link-arg=-L${PREFIX}/lib"
+elif [[ "$target_platform" == "linux-aarch64" ]]
+then
+	echo "***** aarch64"
+	export RUSTFLAGS="-C link-args=-L${PREFIX}/lib"
 else
+	echo "***** not powerpc"
+	echo $target_platform
 	export LIBRARY_PATH=${LIBRARY_PATH}:${PREFIX}/lib
 fi
 export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"
