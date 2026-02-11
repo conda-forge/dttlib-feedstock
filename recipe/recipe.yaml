@@ -16,7 +16,7 @@ build:
   skip: win
     #error_overlinking: true
     #error_overdepending: true
-  number: 0
+  number: 1
     # ignore_run_exports:
     #   - libclang13
     #   - zstd
@@ -54,6 +54,7 @@ requirements:
   host:
     - maturin
     - gds-sigp
+    - libxml2
     - nds2-client
     - pip
     - rapidjson
