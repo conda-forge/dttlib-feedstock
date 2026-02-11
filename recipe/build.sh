@@ -73,10 +73,14 @@ then
 	# needs to use gnu linker
 	# since gcc object files can't be linked by lld
 	export RUSTFLAGS="-C link-arg=-fuse-ld=bfd -C link-arg=-L${PREFIX}/lib"
+elif [[ "$target_platform" == "linux_aarch64" ]]
+else
+	echo "***** aarch64"
+	export RUSTFLAGS="-C link-args=-L${PREFIX}/lib"
 else
 	echo "***** not powerpc"
 	echo $target_platform
-	export RUSTFLAGS="-C link-args=-L${PREFIX}/lib"
+	export LIBRARY_PATH=${LIBRARY_PATH}:${PREFIX}/lib
 fi
 export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"
 # export RUSTFLAGS="${RUSTFLAGS} -L${PREFIX/lib}"

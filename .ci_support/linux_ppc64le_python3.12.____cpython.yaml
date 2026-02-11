@@ -16,6 +16,8 @@ cxx_compiler_version:
 - '18'
 docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma9
+libxml2:
+- '2.13'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -31,15 +33,3 @@ zip_keys:
   - cxx_compiler_version
 zstd:
 - '1.5'
-build_platform:
-- linux-64
-CMAKE_CROSSCOMPILING_EMULATOR: 
-- /usr/bin/qemu-ppc64le-static
-CROSSCOMPILING_EMULATOR: 
-- /usr/bin/qemu-ppc64le-static
-build_platform:
-- linux-64
-CMAKE_CROSSCOMPILING_EMULATOR: 
-- /usr/bin/qemu-ppc64le-static
-CROSSCOMPILING_EMULATOR: 
-- /usr/bin/qemu-ppc64le-static
