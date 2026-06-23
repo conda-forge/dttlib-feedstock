@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: "dttlib"
-  version: "0.10.6"
+  version: "0.10.9"
 
 package:
   name: ${{ name }}
@@ -10,13 +10,13 @@ package:
 
 source:
   url: https://git.ligo.org/cds/software/cr_tools/dttlib/-/archive/${{ version }}/${{ version }}.tar.gz
-  sha256: dc58601a7b9b1a0281a6e77ed6c40510d7b33e96eff06de303a4e5afa2001fb0 
+  sha256: 729f72adcf2253a3936987ca8348c0e12618ae68a68ff4f96e5fb1e249b326c8 
 
 build:
   skip: win
     #error_overlinking: true
     #error_overdepending: true
-  number: 2
+  number: 0
     # ignore_run_exports:
     #   - libclang13
     #   - zstd
@@ -42,7 +42,6 @@ requirements:
     - pkg-config
       #- ruff
     - maturin
-    - curl
     - cmake
       #- libpython-static
     - if: build_platform != target_platform
@@ -53,6 +52,7 @@ requirements:
       else:
         - "python"
   host:
+    - libcurl
     - maturin
     - gds-sigp
     - libxml2
