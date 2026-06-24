@@ -4,6 +4,7 @@ if [[ ${target_platform} == ${build_platform} ]]
 then
 export LIBCLANG_PATH=${PREFIX}/lib
 else
+export PKG_CONFIG_ALLOW_CROSS=1
 export LIBCLANG_PATH=${BUILD_PREFIX}/lib
 fi
 
