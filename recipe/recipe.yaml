@@ -79,7 +79,7 @@ tests:
         - test_dttlib.py
     script:
       content:
-        - pytest
+        - export NDSSERVER="nds.ligo.caltech.edu:31200" && pytest
       env:
         NDSSERVER: "nds.ligo.caltech.edu:31200"
 
