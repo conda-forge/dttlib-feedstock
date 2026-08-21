@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: "dttlib"
-  version: "0.10.9"
+  version: "0.11.2"
 
 package:
   name: ${{ name }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://git.ligo.org/cds/software/cr_tools/dttlib/-/archive/${{ version }}/${{ version }}.tar.gz
-  sha256: 729f72adcf2253a3936987ca8348c0e12618ae68a68ff4f96e5fb1e249b326c8 
+  sha256: 08b26110767b40ec0d6f5213de87a6232f5dc752d4c9d40d60952da5439ff1a5 
 
 build:
   skip: win
@@ -78,7 +78,10 @@ tests:
       source:
         - test_dttlib.py
     script:
-      - pytest
+      content:
+        - export NDSSERVER="nds.ligo.caltech.edu:31200" && pytest
+      env:
+        NDSSERVER: "nds.ligo.caltech.edu:31200"
 
 about:
   homepage: https://git.ligo.org/cds/software/cr_tools/dttlib
