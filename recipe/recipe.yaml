@@ -13,14 +13,14 @@ source:
   sha256: 4f8412988b5eef445ed499e816b204d0298d879b525b6aaa3ff0df5b694c8acd
 
 build:
-  skip: 
+  skip:
     - win
     - match(python, "==3.14")
     - osx and x86_64 and match(python, "==3.12")
 
     #error_overlinking: true
     #error_overdepending: true
-  number: 0
+  number: 1
     # ignore_run_exports:
     #   - libclang13
     #   - zstd
