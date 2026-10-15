@@ -66,7 +66,7 @@ then
 	#export PYO3_CROSS_LIB_DIR=${PREFIX}/lib
 	#export CARGO_TARGET_AARCH64_APPLE_DARWIN_LINKER=${CC}
 	#export RUSTFLAGS="-C linker=${CC}"
-	export RUSTFLAGS="-C link-arg=-Wl,-undefined,dynamic_lookup"
+	#export RUSTFLAGS="-C link-arg=-Wl,-undefined,dynamic_lookup"
 	export LIBRARY_PATH="${LIBRARY_PATH}:${PREFIX}/lib"
 elif [[ "$target_platform" == "linux-ppc64le" ]]
 then
@@ -74,10 +74,12 @@ then
 	# needs to use gnu linker
 	# since gcc object files can't be linked by lld
 	export RUSTFLAGS="-C link-arg=-fuse-ld=bfd -C link-arg=-L${PREFIX}/lib"
+	#export LIBRARY_PATH="${PREFIX}/lib:${LIBRARY_PATH}"
 elif [[ "$target_platform" == "linux-aarch64" ]]
 then
 	echo "***** aarch64"
 	export RUSTFLAGS="-C link-args=-L${PREFIX}/lib"
+	#export LIBRARY_PATH="${LIBRARY_PATH}:${PREFIX}/lib"
 else
 	echo "***** not powerpc"
 	echo $target_platform

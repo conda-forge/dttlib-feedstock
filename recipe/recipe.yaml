@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: "dttlib"
-  version: "0.12.3"
+  version: "0.12.5"
 
 package:
   name: ${{ name }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://git.ligo.org/cds/software/cr_tools/dttlib/-/archive/${{ version }}/${{ version }}.tar.gz
-  sha256: 072a19272d9419920c2cc0228f663dfa656d33ddea1645bc48d7fd50896f064a 
+  sha256: f2522111a67bf788ae03faf07a3f0a0f17a9ecafa1bdf631e3fefa75d80f5e29 
 
 build:
   skip: 
