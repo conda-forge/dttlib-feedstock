@@ -1,3 +1,5 @@
+DOCKER_PLATFORM:
+- linux/amd64
 c_compiler:
 - clang
 c_compiler_version:
@@ -34,4 +36,4 @@ zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
 zstd:
-- '1.5'
+- '1.6'
